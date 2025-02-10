@@ -1,24 +1,7 @@
 package main
 
-import (
-	"fmt"
-	"os"
-)
+import "github.com/gaurav-iitg/todo-cli/cmd"
 
 func main() {
-	if len(os.Args) < 2 {
-		fmt.Println("Usage: todo <command>")
-		return
-	}
-
-	switch os.Args[1] {
-	case "add":
-		// Handle add command
-	case "list":
-		// Handle list command
-	case "delete":
-		// Handle delete command
-	default:
-		fmt.Printf("Unknown command: %s\n", os.Args[1])
-	}
+	cmd.Execute()
 }
