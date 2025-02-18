@@ -19,8 +19,8 @@ var listCmd = &cobra.Command{
 			cmd.Println("No tasks to show")
 			return
 		}
-		for i, task := range tasks {
-			cmd.Printf("%d. [%v] %s\n", i+1, task.Done, task.Title)
+		for _, task := range tasks {
+			cmd.Printf("%d. [%v] %s\n", task.ID, task.Done, task.Title)
 		}
 	},
 }

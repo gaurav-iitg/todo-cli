@@ -17,6 +17,7 @@ func (fs *FileStorage) Save(task models.Task) error {
 	if err != nil {
 		return fmt.Errorf("error listing tasks: %w", err)
 	}
+	task.ID = len(tasks) + 1
 	tasks = append(tasks, task)
 
 	if err := fs.Write(tasks); err != nil {
