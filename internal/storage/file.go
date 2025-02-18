@@ -1,9 +1,11 @@
 package storage
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"path/filepath"
+	"slices"
 )
 
 type FileStorage struct {
@@ -30,5 +32,16 @@ func NewFileStorage() *FileStorage {
 
 func (fs *FileStorage) Delete(index int) error {
 	// Delete the task at the given index from the file
+	tasks, err := fs.List()
+	if err != nil {
+		return err
+	}
+	if index < 0 || index >= len(tasks) {
+		return fmt.Errorf("index out of range")
+	}
+	tasks = slices.Delete(tasks, index, index+1)
+	// Reorder the IDs
+	fs.ReorderTasks(tasks)
+	err = fs.Write(tasks)
 	return nil
 }

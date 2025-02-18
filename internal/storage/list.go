@@ -38,3 +38,10 @@ func (fs *FileStorage) GetTaskByID(id int) (models.Task, error) {
 	}
 	return models.Task{}, fmt.Errorf("task not found")
 }
+
+func (fs *FileStorage) ReorderTasks(tasks []models.Task) {
+	// Write the tasks to the file
+	for i := range tasks {
+		tasks[i].ID = i + 1
+	}
+}
