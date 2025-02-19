@@ -24,6 +24,7 @@ func init() {
 	rootCmd.AddCommand(listCmd)
 	rootCmd.AddCommand(completeCmd)
 	rootCmd.AddCommand(deleteCmd)
+	rootCmd.AddCommand(viewCmd)
 }
 
 func Execute(service *service.TodoService) {
