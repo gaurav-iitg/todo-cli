@@ -3,7 +3,7 @@ package cmd
 import (
 	"os"
 
-	"github.com/gaurav-iitg/todo-cli/internal/utils/validators"
+	"github.com/gaurav-iitg/todo-cli/utils/validators"
 	"github.com/spf13/cobra"
 )
 
